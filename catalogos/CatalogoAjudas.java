@@ -15,5 +15,9 @@ public class CatalogoAjudas {
 	public boolean contains(Ajuda a) {
 		return ajudas.contains(a);
 	}
+
+	public List<Ajuda> getAjudas(){
+		return this.ajudas;
+	}
     
 }

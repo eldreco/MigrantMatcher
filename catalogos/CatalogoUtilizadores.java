@@ -15,7 +15,7 @@ public class CatalogoUtilizadores {
 		utilizadores.add(u);
 	}
 
-	public boolean contains(Utilizador u) {
+	public boolean identificar(Utilizador u) {
 		return utilizadores.contains(u);
 	}
     
