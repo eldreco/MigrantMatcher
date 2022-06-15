@@ -3,6 +3,7 @@ package handlers;
 import java.util.EnumSet;
 import java.util.Scanner;
 
+import SMSproviders.SMSAdapter;
 import catalogos.CatalogoAjudas;
 import catalogos.CatalogoUtilizadores;
 import dominio.Ajuda;
