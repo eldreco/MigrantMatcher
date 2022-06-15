@@ -18,7 +18,7 @@ public class MigrantMatcher {
         CatalogoAjudas catA = new CatalogoAjudas();
         catU.adicionaUtilizador(v);
         RegistarAjudaHandler rghandler = new RegistarAjudaHandler(catU, catA, v);
-        Alojamento a = rghandler.indicarTipoAjuda();
-        System.out.println(a.getRegiao());
+        Ajuda a = rghandler.indicarTipoAjuda();
+        System.out.println(a.getNome());
     }
 }

@@ -3,11 +3,11 @@ package dominio;
 public enum Regiao {
     FARO,
     BEJA,
-    SETÚBAL,
-    ÉVORA,
+    SETUBAL,
+    EVORA,
     LISBOA,
     PORTALEGRE,
-    SANTARÉM,
+    SANTAREM,
     LEIRIA,
     CASTELO_BRANCO,
     COIMBRA,
@@ -17,6 +17,6 @@ public enum Regiao {
     PORTO,
     BRAGA,
     VILA_REAL,
-    BRAGANÇA,
+    BRAGANCA,
     VIANA_DO_CASTELO
 }
