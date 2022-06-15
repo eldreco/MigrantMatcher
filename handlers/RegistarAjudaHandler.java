@@ -36,6 +36,7 @@ public class RegistarAjudaHandler {
     public void registarAjuda(){
         System.out.println("Vamos começar o processo de oferecer ajuda! Muito obrigado!");
         catalogoAjudas.adicionaAjuda(indicarTipoAjuda());
+        System.out.println("ola");
         
     }
 
