@@ -10,5 +10,4 @@ public class PidgeonSMSAdapter implements SMSAdapter{
     public void enviar(String numero, String conteudo) {
         pidgeon.send(numero, conteudo);
     }
-    
 }
