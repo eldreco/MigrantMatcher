@@ -18,5 +18,9 @@ public class CatalogoUtilizadores {
 	public boolean identificar(Utilizador u) {
 		return utilizadores.contains(u);
 	}
+	
+	public List<Utilizador> getUtilizadores(){
+		return this.utilizadores;
+	}
     
 }

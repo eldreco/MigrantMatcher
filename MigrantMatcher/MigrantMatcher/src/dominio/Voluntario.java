@@ -2,8 +2,8 @@ package dominio;
 
 public class Voluntario extends Utilizador{
 
-    public Voluntario(int id, int contacto) {
-        super(id, contacto);
+    public Voluntario(int id, String nome, int contacto) {
+        super(id, nome, contacto);
         //TODO Auto-generated constructor stub
     }
 

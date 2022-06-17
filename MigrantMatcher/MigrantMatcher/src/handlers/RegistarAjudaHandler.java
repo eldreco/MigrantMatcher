@@ -17,13 +17,12 @@ import dominio.Voluntario;
 /**
  * RegistarAjudaHandler
  */
-public class RegistarAjudaHandler {
+public class RegistarAjudaHandler extends Handler{
 
     private CatalogoUtilizadores catalogoUtilizadores;
     private CatalogoAjudas catalogoAjudas;
     private Voluntario voluntario;
     private SMSAdapter sms = new PidgeonSMSAdapter();    
-    private Scanner sc = new Scanner(System.in);
 
     public RegistarAjudaHandler(CatalogoUtilizadores catUtilizadores, CatalogoAjudas catAjudas, Voluntario v) throws Exception{
         this.catalogoUtilizadores = catUtilizadores;
@@ -58,7 +57,7 @@ public class RegistarAjudaHandler {
                 }
                 System.out.print("Indique qual é a região do alojamento, seguindo o formato usado na lista: ");
                 Regiao regiao = pedirRegiao();
-                Alojamento a = new Alojamento("Alojamento", catalogoAjudas.getAjudas().size(), numeroPessoas, regiao);
+                Alojamento a = new Alojamento("Alojamento", catalogoAjudas.getAjudas().size(), numeroPessoas, regiao, this.voluntario);
                 result = (T)a;
                 break;
             } else if(ajuda.equals("Item")){
@@ -66,7 +65,7 @@ public class RegistarAjudaHandler {
                 String nome = sc.nextLine();
                 System.out.print("Indique uma curta descrição do item: ");
                 String desc = sc.nextLine();
-                Item i = new Item(nome, catalogoAjudas.getAjudas().size(), desc);
+                Item i = new Item(nome, catalogoAjudas.getAjudas().size(), desc, this.voluntario);
                 result = (T)i;
                 break;
             } 
@@ -88,42 +87,5 @@ public class RegistarAjudaHandler {
     			
     	}
     	
-    }
-
-    private int pedirInteiro(int min, int max){
-        String result = null;
-        while(true){
-            try 
-            {
-                result = sc.nextLine();
-                Integer.parseInt(result);
-                if(min <= Integer.parseInt(result) && Integer.parseInt(result) <= max)
-                    break;
-            } 
-            catch (NumberFormatException e) 
-            {
-                System.out.print("NÃ£o foi introduzido um nÃºmero vÃ¡lido, tente outra vez: ");
-            }
-            
-        }
-        return Integer.parseInt(result);
-    }
-
-    private Regiao pedirRegiao(){
-        Regiao result = null;
-        while(true){
-            try 
-            {
-                String regS = sc.nextLine();
-                result = Regiao.valueOf(regS);
-                break;
-            } 
-            catch (IllegalArgumentException e) 
-            {
-                System.out.print("NÃ£o foi introduzida um regiÃ£o vÃ¡lida, tente outra vez: ");
-            }
-            
-        }
-        return result;
     }
 }
