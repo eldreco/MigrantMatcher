@@ -8,10 +8,12 @@ public class Migrante extends Utilizador {
 	private List<String> familiares;
 	private boolean temFamiliares;
 	private HashSet<Ajuda> ajudasAtribuidas;
+	private boolean serNotificado;
 	
     public Migrante(int id, String nome, int contacto) {
         super(id, nome, contacto);
         temFamiliares = false;
+        serNotificado = false;
         //TODO Auto-generated constructor stub
     }
     
@@ -35,6 +37,18 @@ public class Migrante extends Utilizador {
 
 	public void setAjudasAtribuidas(HashSet<Ajuda> ajudasAtribuidas) {
 		this.ajudasAtribuidas = ajudasAtribuidas;
+	}
+
+	public boolean getRegiaoNotificado() {
+		return serNotificado;
+	}
+
+	public void setRegiaoNotificado(boolean serNotificado) {
+		this.serNotificado = serNotificado;
+	}
+	
+	public boolean equals(Migrante other) {
+		return this.getNome().equals(other.getNome()) && this.getContacto() == other.getContacto();
 	}
     
 }

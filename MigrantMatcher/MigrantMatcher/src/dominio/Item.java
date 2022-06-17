@@ -17,4 +17,8 @@ public class Item extends Ajuda{
 	public String getDescricao() {
 		return this.descricao;
 	}
+	
+	public boolean equals(Item other) {
+		return this.getNome().equals(other.getNome()) && this.getDescricao().equals(other.getDescricao()) && this.getVoluntario().equals(other.getVoluntario());
+	}
 }

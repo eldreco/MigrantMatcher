@@ -76,9 +76,13 @@ public class ProcurarAjudaHandler extends Handler{
 			regioes = catA.getRegioesComAlojamentoDisponivel(1);
 		else
 			regioes = catA.getRegioesComAlojamentoDisponivel(migrante.getFamiliares().size() + 1);
-		if(regioes.isEmpty())
-			System.out.println("Nao ha regioes diponiveis. Pedimos desculpa");
-		else {
+		if(regioes.isEmpty()) {
+			System.out.print("Nao ha regioes diponiveis. Pedimos desculpa. pretende ser notificado se a situacao mudar?(Sim ou Nao) ");
+			String input = sc.nextLine();
+			if(input.equals("Sim"))
+				migrante.setRegiaoNotificado(true);
+			return null;
+		}else {
 			for(Regiao r : regioes) {
 				System.out.println(r);
 			}

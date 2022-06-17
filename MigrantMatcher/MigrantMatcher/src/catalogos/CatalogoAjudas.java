@@ -1,9 +1,12 @@
 package catalogos;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.PriorityQueue;
 
+import configuration.Configuration;
 import dominio.Ajuda;
 import dominio.Alojamento;
 import dominio.Item;
@@ -12,6 +15,8 @@ import dominio.Regiao;
 
 public class CatalogoAjudas {
     private List<Ajuda> ajudas = new ArrayList<Ajuda>();
+    PriorityQueue<Ajuda> pq = new 
+            PriorityQueue<Ajuda>(1, new AjudaComparator());
 
 	public void adicionaAjuda(Ajuda a) {
 		ajudas.add(a);
@@ -57,5 +62,25 @@ public class CatalogoAjudas {
 			}
 		}
 		return alojamentos;
+	}
+}
+
+class AjudaComparator implements Comparator<Ajuda>{
+    private Configuration config = Configuration.getInstance();
+    String ordem = config.getString("ordemDatasAjudas", "Ascendente");
+	@Override
+	public int compare(Ajuda a1, Ajuda a2) {
+        if (a1.getData().compareTo(a2.getData()) > 0) {
+        	if(ordem.equals("Ascendente"))
+        		return 1;
+        	else
+        		return -1;
+        }else if (a1.getData().compareTo(a2.getData()) < 0) {
+        	if(ordem.equals("Ascendente"))
+        		return -1;
+        	else
+        		return 1;
+        }
+        return 0;
 	}
 }

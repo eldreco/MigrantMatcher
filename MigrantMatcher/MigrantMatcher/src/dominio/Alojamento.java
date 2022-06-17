@@ -19,6 +19,14 @@ public class Alojamento extends Ajuda{
     	return this.numeroPessoas;
     }
     
+    public boolean equals(Alojamento other) {
+		return this.getNome().equals(other.getNome()) && 
+				this.getCodigo() == other.getCodigo() &&
+				this.getNumeroPessoas() == other.getNumeroPessoas() &&
+				this.getRegiao().equals(other.getRegiao()) &&
+				this.getVoluntario().equals(other.getVoluntario());	
+    }
+    
     @Override
     public String toString() {
     	return "Nome: " + this.getNome() + ", numero de pessoas que pode alojar: " + this.getNumeroPessoas();
